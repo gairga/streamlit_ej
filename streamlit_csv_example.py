@@ -26,7 +26,7 @@ df[df['Country_Region'] == country]
 
 
 
-fig = px.scatter_mapbox(us_cities, lat="lat", lon="lon", hover_name="City", hover_data=["State", "Population"],
+fig = px.scatter_mapbox(df, lat="Lat", lon="Long_", hover_name="Country_Region", hover_data=["Province_State", "Population"],
                         color_discrete_sequence=["fuchsia"], zoom=3, height=300)
 fig.update_layout(mapbox_style="open-street-map")
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
