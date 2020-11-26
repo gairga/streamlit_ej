@@ -26,17 +26,17 @@ df[df['Country_Region'] == country]
 
 
 
+token = open(".pk.eyJ1IjoiZXJpYm0iLCJhIjoiY2toeWFkYjRqMDU1MDJwb2gwYXh2MGw5aSJ9.9PUU7uhK7sTlPisnXJ1Hfg").read() # you will need your own token
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+import pandas as pd
+us_cities = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv")
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+import plotly.express as px
 
-app.layout = html.Div(
-[html.H1("Hello World")]
-)
-
-if __name__ == '__main__':
-    app.run_server(debug=True)
-
+fig = px.scatter_mapbox(us_cities, lat="lat", lon="lon", hover_name="City", hover_data=["State", "Population"],
+                        color_discrete_sequence=["fuchsia"], zoom=3, height=300)
+fig.update_layout(mapbox_style="dark", mapbox_accesstoken=token)
+fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+fig.show()
 
 
