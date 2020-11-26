@@ -1,7 +1,7 @@
 import dash
 import streamlit as st
 import pandas as pd
-
+import dash_html_components as html
 
 @st.cache
 def get_data():
@@ -23,15 +23,20 @@ df[df['Country_Region'] == country]
 
 '# Recomendaciones'
 '# ....'
-us_cities = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv")
 
-import plotly.express as px
 
-fig = px.scatter_mapbox(us_cities, lat="lat", lon="lon", hover_name="City", hover_data=["State", "Population"],
-                        color_discrete_sequence=["fuchsia"], zoom=3, height=300)
-fig.update_layout(mapbox_style="open-street-map")
-fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-fig.show()
+
+
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+app.layout = html.Div(
+[html.H1("Hello World")]
+)
+
+if __name__ == '__main__':
+    app.run_server(debug=True)
 
 
 
