@@ -4,7 +4,7 @@ import pandas as pd
 
 @st.cache
 def get_data():
-    return pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/Errata.csv')
+    return pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/UID_ISO_FIPS_LookUp_Table.csv')
 
 
 '# World GDP'
