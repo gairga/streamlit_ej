@@ -26,7 +26,7 @@ df[df['Country_Region'] == country]
 
 
 
-token = open(".pk.eyJ1IjoiZXJpYm0iLCJhIjoiY2toeWFkYjRqMDU1MDJwb2gwYXh2MGw5aSJ9.9PUU7uhK7sTlPisnXJ1Hfg").read() # you will need your own token
+token = open("pk.eyJ1IjoiZXJpYm0iLCJhIjoiY2toeWFkYjRqMDU1MDJwb2gwYXh2MGw5aSJ9.9PUU7uhK7sTlPisnXJ1Hfg").read() # you will need your own token
 
 
 us_cities = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv")
