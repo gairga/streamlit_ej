@@ -1,7 +1,7 @@
-import dash
 import streamlit as st
 import pandas as pd
-import dash_html_components as html
+import plotly.express as px
+
 
 @st.cache
 def get_data():
@@ -28,10 +28,9 @@ df[df['Country_Region'] == country]
 
 token = open(".pk.eyJ1IjoiZXJpYm0iLCJhIjoiY2toeWFkYjRqMDU1MDJwb2gwYXh2MGw5aSJ9.9PUU7uhK7sTlPisnXJ1Hfg").read() # you will need your own token
 
-import pandas as pd
+
 us_cities = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv")
 
-import plotly.express as px
 
 fig = px.scatter_mapbox(us_cities, lat="lat", lon="lon", hover_name="City", hover_data=["State", "Population"],
                         color_discrete_sequence=["fuchsia"], zoom=3, height=300)
