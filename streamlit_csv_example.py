@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import dash as ds
 
 @st.cache
 def get_data():
@@ -21,10 +20,5 @@ df[df['Country_Region'] == country]
 
 
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
-app = ds.Dash(__name__,external_stylesheets=external_stylesheets)
-server = app.server
-app.config.suppress_callback_exceptions = True
 
 
