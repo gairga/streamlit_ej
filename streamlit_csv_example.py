@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+import dash
 
 @st.cache
 def get_data():
@@ -18,5 +18,13 @@ countries = df['Country_Region'].unique()
 country = st.selectbox('Country', countries)
 df[df['Country_Region'] == country]
 
+
+
+
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
+app = dash.Dash(__name__,external_stylesheets=external_stylesheets)
+server = app.server
+app.config.suppress_callback_exceptions = True
 
 
