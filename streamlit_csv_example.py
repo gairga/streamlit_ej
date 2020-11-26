@@ -23,39 +23,15 @@ df[df['Country_Region'] == country]
 
 '# Recomendaciones'
 '# ....'
+us_cities = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv")
 
-data = pd.DataFrame({
-    'awesome cities' : ['Chicago', 'Minneapolis', 'Louisville', 'Topeka'],
-    'lat' : [41.868171, 44.979840,  38.257972, 39.030575],
-    'lon' : [-87.667458, -93.272474, -85.765187,  -95.702548]
-})
+import plotly.express as px
 
-# Adding code so we can have map default to the center of the data
-midpoint = (np.average(data['lat']), np.average(data['lon']))
-
-st.deck_gl_chart(
-            viewport={
-                'latitude': midpoint[0],
-                'longitude':  midpoint[1],
-                'zoom': 4
-            },
-            layers=[{
-                'type': 'ScatterplotLayer',
-                'data': data,
-                'radiusScale': 250,
-   'radiusMinPixels': 5,
-                'getFillColor': [248, 24, 148],
-            }]
-        )
-
-
-
-
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
-app = dash.Dash(__name__,external_stylesheets=external_stylesheets)
-server = app.server
-app.config.suppress_callback_exceptions = True
+fig = px.scatter_mapbox(us_cities, lat="lat", lon="lon", hover_name="City", hover_data=["State", "Population"],
+                        color_discrete_sequence=["fuchsia"], zoom=3, height=300)
+fig.update_layout(mapbox_style="open-street-map")
+fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+fig.show()
 
 
 
