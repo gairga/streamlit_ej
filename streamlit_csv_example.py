@@ -4,23 +4,21 @@ import pandas as pd
 
 @st.cache
 def get_data():
-    return pd.read_csv('https://datahub.io/core/gdp/r/gdp.csv')
+    return pd.read_csv('https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/UID_ISO_FIPS_LookUp_Table.csv')
 
 
 '# World GDP'
 
 df = get_data()
 
-min_year = int(df['Year'].min())
-max_year = int(df['Year'].max())
+lan = int(df['Lat'].min())
+long = int(df['Long_'].max())
 
-countries = df['Country Name'].unique()
+countries = df['Country_Region'].unique()
 
 '## By country'
 country = st.selectbox('Country', countries)
-df[df['Country Name'] == country]
+df[df['Country_Region'] == country]
 
 
-'## By year'
-year = st.slider('Year', min_year, max_year)
-df[df['Year'] == year]
+
