@@ -10,7 +10,7 @@ def get_data():
 
 '# CSV: https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/UID_ISO_FIPS_LookUp_Table.csv'
 '# ....'
-'# Introduce el país Destino para ver las recomendaciones'
+'# Introduce el pais Destino para ver las recomendaciones'
 df = get_data()
 
 
