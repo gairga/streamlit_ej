@@ -25,6 +25,10 @@ df[df['Country_Region'] == country]
 '# ....'
 
 
+x = st.slider('Select a value')
+st.write(x, 'squared is', x * x)
+
+
 us_cities = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv")
 
 import plotly.express as px
