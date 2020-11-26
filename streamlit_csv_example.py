@@ -11,8 +11,6 @@ def get_data():
 
 df = get_data()
 
-lan = int(df['Lat'].min())
-long = int(df['Long_'].max())
 
 countries = df['Country_Region'].unique()
 
